@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import Counter from "./compoments/Counter";
+import './styles/App.css'
+import PostItem from "./compoments/PostItem";
+import PostList from "./compoments/PostList";
 
 function App() {
-  return (
+  const [posts,setPosts] = useState([
+    {id:'1.',title:'javascript',body:'Describtion'},
+    {id:'2.',title:'javascript 2',body:'Describtion'},
+    {id:'3.',title:'javascript 3',body:'Describtion'}
+  ])
+  const [posts2,setPosts2] = useState([
+    {id:'1.',title:'php',body:'Describtion'},
+    {id:'2.',title:'php 2',body:'Describtion'},
+    {id:'3.',title:'php 3',body:'Describtion'}
+  ])
+  return ( 
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <PostList posts = {posts} title ='список постов 1 '/>
+     <PostList posts = {posts2} title ='список постов 2 '/>
     </div>
+
   );
 }
 
